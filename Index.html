@@ -1,0 +1,91 @@
+Index.hyml
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Invitation for Mpho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="card">
+        <!-- Step 1: The Question -->
+        <div id="step-1" class="step active">
+            <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiOkM/giphy.gif" alt="Cute cat" class="gif">
+            <h2>Will you go on a date with me, Mpho?</h2>
+            <div class="btn-group">
+                <button id="yes-btn" onclick="nextStep(2)">YES 💕</button>
+                <button id="no-btn" onmouseover="moveButton()">no 🙈</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Celebration -->
+        <div id="step-2" class="step">
+            <h2>WAIT YOU ACTUALLY SAID YES?! 😆</h2>
+            <p>I was so ready for you to say no 🤫</p>
+            <button onclick="nextStep(3)">okay okay! ➔</button>
+        </div>
+
+        <!-- Step 3: Date & Time -->
+        <div id="step-3" class="step">
+            <h2>So... when are you free? 📅🐾</h2>
+            <input type="date" id="date-picker">
+            <select id="time-picker">
+                <option value="">Select a Time...</option>
+                <option value="5:00 PM">5:00 PM — we eating the refries</option>
+                <option value="6:00 PM">6:00 PM — this is the right answer tbh</option>
+                <option value="7:00 PM">7:00 PM — you're making me hungry already</option>
+                <option value="8:00 PM">8:00 PM — we eating dinner or breakfast?</option>
+            </select>
+            <button onclick="nextStep(4)">set the date! ➔</button>
+        </div>
+
+        <!-- Step 4: Food Preference -->
+        <div id="step-4" class="step">
+            <h2>What are we feeling? 🍜🍣</h2>
+            <div class="food-grid">
+                <button class="food-btn" onclick="selectFood(this)">🍕 Pizza</button>
+                <button class="food-btn" onclick="selectFood(this)">🍣 Sushi</button>
+                <button class="food-btn" onclick="selectFood(this)">🍔 Burgers</button>
+                <button class="food-btn" onclick="selectFood(this)">🍝 Pasta</button>
+                <button class="food-btn" onclick="selectFood(this)">🌮 Tacos</button>
+                <button class="food-btn" onclick="selectFood(this)">🍜 Ramen</button>
+            </div>
+            <button onclick="nextStep(5)" style="margin-top: 20px;">it's a date! ➔</button>
+        </div>
+
+        <!-- Step 5: Final Message -->
+        <div id="step-5" class="step">
+            <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Happy" class="gif">
+            <h2>Glad you didn't say no. Be ready by 6, I'm coming to get you 🚗💨</h2>
+            <p class="small-text">P.S. normal people text, I made a website on Replit/HTML during lunch, for you, no big deal.</p>
+            <div class="hearts">💗 💗 💗 💗 💗</div>
+        </div>
+    </div>
+
+    <script>
+        // Handle step navigation
+        function nextStep(stepNumber) {
+            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+            document.getElementById(`step-${stepNumber}`).classList.add('active');
+        }
+
+        // Make the "No" button run away from the cursor
+        function moveButton() {
+            const noBtn = document.getElementById('no-btn');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        // Highlight selected food
+        function selectFood(btn) {
+            document.querySelectorAll('.food-btn').forEach(b => b.style.background = '#fff');
+            btn.style.background = '#ffd1dc';
+        }
+    </script>
+</body>
