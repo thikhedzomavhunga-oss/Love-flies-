@@ -1,204 +1,224 @@
-Index.hyml
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Invitation for Mpho</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Flies</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     body {
-    background-color: #f7f3f0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-}
+      background-color: #ffe6ea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-.container {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    width: 400px;
-    position: relative;
-}
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
 
-.step {
-    display: none;
-}
+    .step {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
 
-.step.active {
-    display: block;
-}
+    .step.active {
+      display: flex;
+    }
 
-h2 {
-    color: #333;
-    font-size: 22px;
-    margin-bottom: 20px;
-}
+    h2 {
+      color: #d63384;
+      font-size: 1.5rem;
+    }
 
-p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
+    p {
+      color: #555;
+    }
 
-.gif {
-    width: 120px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+    .gif {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 15px;
+    }
 
-button {
-    background-color: #ffb6c1;
-    border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 25px;
-    cursor: pointer;
-    color: #fff;
-    font-weight: bold;
-    transition: 0.2s;
-    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.4);
-}
+    button {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+    }
 
-button:hover {
-    background-color: #ff91a4;
-}
+    button:hover {
+      background-color: #ff758f;
+      transform: scale(1.05);
+    }
 
-.btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    position: relative;
-}
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 10px;
+      width: 100%;
+    }
 
-#no-btn {
-    background-color: #e0e0e0;
-    color: #555;
-    box-shadow: none;
-}
+    #no-btn {
+      background-color: #6c757d;
+      z-index: 1000;
+    }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 14px;
-    box-sizing: border-box;
-}
+    input[type="date"], select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ffccd5;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      background-color: #fff0f3;
+    }
 
-.food-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
 
-.food-btn {
-    background: #fff;
-    border: 1px solid #ffb6c1;
-    color: #333;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 14px;
-}
+    .food-btn {
+      background-color: #fff;
+      color: #333;
+      border: 2px solid #ffccd5;
+      padding: 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
 
-.small-text {
-    font-size: 11px;
-    color: #888;
-    margin-top: 15px;
-}
+    .food-btn:hover {
+      background-color: #fff0f3;
+    }
 
-.hearts {
-    color: #ffb6c1;
-    font-size: 18px;
-    margin-top: 10px;
-}
-    
+    .hearts {
+      font-size: 1.5rem;
+    }
+
+    .small-text {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container" id="card">
-        <!-- Step 1: The Question -->
-        <div id="step-1" class="step active">
-            <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiOkM/giphy.gif" alt="Cute cat" class="gif">
-            <h2>Will you go on a date with me, Mpho?</h2>
-            <div class="btn-group">
-                <button id="yes-btn" onclick="nextStep(2)">YES 💕</button>
-                <button id="no-btn" onmouseover="moveButton()">no 🙈</button>
-            </div>
-        </div>
-
-        <!-- Step 2: Celebration -->
-        <div id="step-2" class="step">
-            <h2>WAIT YOU ACTUALLY SAID YES?! 😆</h2>
-            <p>I was so ready for you to say no 🤫</p>
-            <button onclick="nextStep(3)">okay okay! ➔</button>
-        </div>
-
-        <!-- Step 3: Date & Time -->
-        <div id="step-3" class="step">
-            <h2>So... when are you free? 📅🐾</h2>
-            <input type="date" id="date-picker">
-            <select id="time-picker">
-                <option value="">Select a Time...</option>
-                <option value="5:00 PM">5:00 PM — we eating the refries</option>
-                <option value="6:00 PM">6:00 PM — this is the right answer tbh</option>
-                <option value="7:00 PM">7:00 PM — you're making me hungry already</option>
-                <option value="8:00 PM">8:00 PM — we eating dinner or breakfast?</option>
-            </select>
-            <button onclick="nextStep(4)">set the date! ➔</button>
-        </div>
-
-        <!-- Step 4: Food Preference -->
-        <div id="step-4" class="step">
-            <h2>What are we feeling? 🍜🍣</h2>
-            <div class="food-grid">
-                <button class="food-btn" onclick="selectFood(this)">🍕 Pizza</button>
-                <button class="food-btn" onclick="selectFood(this)">🍣 Sushi</button>
-                <button class="food-btn" onclick="selectFood(this)">🍔 Burgers</button>
-                <button class="food-btn" onclick="selectFood(this)">🍝 Pasta</button>
-                <button class="food-btn" onclick="selectFood(this)">🌮 Tacos</button>
-                <button class="food-btn" onclick="selectFood(this)">🍜 Ramen</button>
-            </div>
-            <button onclick="nextStep(5)" style="margin-top: 20px;">it's a date! ➔</button>
-        </div>
-
-        <!-- Step 5: Final Message -->
-        <div id="step-5" class="step">
-            <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Happy" class="gif">
-            <h2>Glad you didn't say no. Be ready by 6, I'm coming to get you 🚗💨</h2>
-            <p class="small-text">P.S. normal people text, I made a website on Replit/HTML during lunch, for you, no big deal.</p>
-            <div class="hearts">💗 💗 💗 💗 💗</div>
-        </div>
+  <div class="container">
+    <!-- Step 1: Initial Question -->
+    <div id="step-1" class="step active">
+      <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Cute gif" class="gif">
+      <h2>Will you go out with me? 🌹</h2>
+      <div class="btn-group">
+        <button onclick="nextStep(2)">Yes! ✨</button>
+        <button id="no-btn" onmouseover="moveButton()" onclick="moveButton()">No 😢</button>
+      </div>
     </div>
 
-    <script>
-        // Handle step navigation
-        function nextStep(stepNumber) {
-            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
-            document.getElementById(`step-${stepNumber}`).classList.add('active');
-        }
+    <!-- Step 2: Confirmation -->
+    <div id="step-2" class="step">
+      <h2>Yay! I knew you'd say yes! 🥰</h2>
+      <p>Let's plan our special date together...</p>
+      <button onclick="nextStep(3)">Let's do it! ➔</button>
+    </div>
 
-        // Make the "No" button run away from the cursor
-        function moveButton() {
-            const noBtn = document.getElementById('no-btn');
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            noBtn.style.position = 'absolute';
-            noBtn.style.left = `${x}px`;
-            noBtn.style.top = `${y}px`;
-        }
+    <!-- Step 3: Date & Time -->
+    <div id="step-3" class="step">
+      <h2>So... when are you free? 📅🐾</h2>
+      <input type="date" id="date-picker">
+      <select id="time-picker">
+        <option value="">Select a Time...</option>
+        <option value="5:00 PM">5:00 PM — we eating the refries</option>
+        <option value="6:00 PM">6:00 PM — this is the right answer tbh</option>
+        <option value="7:00 PM">7:00 PM — you're making me hungry already</option>
+        <option value="8:00 PM">8:00 PM — we eating dinner or breakfast?</option>
+      </select>
+      <button onclick="nextStep(4)">Set the date! ➔</button>
+    </div>
 
-        // Highlight selected food
-        function selectFood(btn) {
-            document.querySelectorAll('.food-btn').forEach(b => b.style.background = '#fff');
-            btn.style.background = '#ffd1dc';
-        }
-    </script>
+    <!-- Step 4: Food Preference -->
+    <div id="step-4" class="step">
+      <h2>What are we feeling? 🍜🍣</h2>
+      <div class="food-grid">
+        <button class="food-btn" onclick="selectFood(this)">🍕 Pizza</button>
+        <button class="food-btn" onclick="selectFood(this)">🍣 Sushi</button>
+        <button class="food-btn" onclick="selectFood(this)">🍔 Burgers</button>
+        <button class="food-btn" onclick="selectFood(this)">🍝 Pasta</button>
+        <button class="food-btn" onclick="selectFood(this)">🌮 Tacos</button>
+        <button class="food-btn" onclick="selectFood(this)">🍜 Ramen</button>
+      </div>
+      <button onclick="nextStep(5)" style="margin-top: 20px;">It's a date! ➔</button>
+    </div>
+
+    <!-- Step 5: Final Message -->
+    <div id="step-5" class="step">
+      <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Happy" class="gif">
+      <h2>Glad you didn't say no. Be ready, I'm coming to get you 🚗💨</h2>
+      <p class="small-text">P.S. Normal people text, I made a website for you during lunch. No big deal.</p>
+      <div class="hearts">💗 💗 💗 💗 💗</div>
+    </div>
+  </div>
+
+  <script>
+    // Handle step navigation
+    function nextStep(stepNumber) {
+      document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+      document.getElementById(`step-${stepNumber}`).classList.add('active');
+    }
+
+    // Make the "No" button run away from the cursor
+    function moveButton() {
+      const noBtn = document.getElementById('no-btn');
+      noBtn.style.position = 'fixed';
+      
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 40) + 20;
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40) + 20;
+      
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    // Highlight selected food
+    function selectFood(btn) {
+      document.querySelectorAll('.food-btn').forEach(b => {
+        b.style.background = '#fff';
+        b.style.borderColor = '#ffccd5';
+      });
+      btn.style.background = '#ffd1dc';
+      btn.style.borderColor = '#ff4d6d';
+    }
+  </script>
 </body>
+</html>
+
+```
+
